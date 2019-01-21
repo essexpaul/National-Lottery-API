@@ -1,0 +1,159 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started &#8212; lottery 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Testing" href="testing.html" />
+    <link rel="prev" title="National Lottery API" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lottocountry">
+<h2>LottoCountry<a class="headerlink" href="#lottocountry" title="Permalink to this headline">¶</a></h2>
+<p>Class for each countries lottery.</p>
+<div class="section" id="set-ball-sets">
+<h3>Set Ball Sets<a class="headerlink" href="#set-ball-sets" title="Permalink to this headline">¶</a></h3>
+<p>Allows the user to change the ball sets of a country’s lottery.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">italy</span> <span class="o">=</span> <span class="n">LottoCountry</span><span class="p">(</span><span class="s2">&quot;Italy&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">italy</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Country</span><span class="p">:</span> <span class="n">Italy</span>
+<span class="go">    ...     ======================</span>
+<span class="go">    ...     Main ball number: 6</span>
+<span class="go">    ...     Main ball range: 70</span>
+<span class="go">    ...     Second ball number: 1</span>
+<span class="go">    ...     Second ball range: 15</span>
+<span class="go">    ...     Third ball number: 0</span>
+<span class="go">    ...     Third ball range: 0</span>
+
+<span class="go">    &gt;&gt;&gt; print(italy)</span>
+<span class="go">    &gt;&gt;&gt;     italy.set_ball_sets(6, 70, 1, 15, 1, 5)</span>
+
+<span class="go">    &gt;&gt;&gt; print(italy)</span>
+<span class="go">    &gt;&gt;&gt;     Country: Italy</span>
+<span class="go">    ...     ======================</span>
+<span class="go">    ...     Main ball number: 6</span>
+<span class="go">    ...     Main ball range: 70</span>
+<span class="go">    ...     Second ball number: 1</span>
+<span class="go">    ...     Second ball range: 15</span>
+<span class="go">    ...     Third ball number: 1</span>
+<span class="go">    ...     Third ball range: 5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parse-all-results-files">
+<h3>Parse All Results Files<a class="headerlink" href="#parse-all-results-files" title="Permalink to this headline">¶</a></h3>
+<p>Parses the results files for a country’s lottery.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">italy</span><span class="o">.</span><span class="n">parse_all_results_files</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">italy</span><span class="o">.</span><span class="n">get_all_results</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;1-1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;03-11-2019&#39;</span><span class="p">,</span> <span class="s1">&#39;draw number&#39;</span><span class="p">:</span> <span class="s1">&#39;32322&#39;</span><span class="p">,</span> <span class="s1">&#39;lotto numbers&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;main ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="s1">&#39;second ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">]}}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parse-all-tickets-files">
+<h3>Parse All Tickets Files<a class="headerlink" href="#parse-all-tickets-files" title="Permalink to this headline">¶</a></h3>
+<p>Parses the tickets files for a country’s lottery and creates a csv file.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">italy</span><span class="o">.</span><span class="n">parse_all_tickets_files</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">italy</span><span class="o">.</span><span class="n">get_all_tickets</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;1-1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;03-11-2019&#39;</span><span class="p">,</span> <span class="s1">&#39;draw number&#39;</span><span class="p">:</span> <span class="s1">&#39;32322&#39;</span><span class="p">,</span> <span class="s1">&#39;number of balls matched&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;main ball set&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;second ball set&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}},</span> <span class="s1">&#39;jackpot won?&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="s1">&#39;jackpot winners&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;all lotto tickets&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;2111131&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;main ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="s1">&#39;second ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">]},</span> <span class="s1">&#39;2111132&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;main ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="s1">&#39;second ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">]},</span> <span class="s1">&#39;2111133&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;main ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="s1">&#39;second ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">]},</span> <span class="s1">&#39;2111134&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;main ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">38</span><span class="p">],</span> <span class="s1">&#39;second ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]},</span> <span class="s1">&#39;2111135&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;main ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="s1">&#39;second ball set&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">]}}}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/lotto.jpg" title="Mention-Python"/>
+  </a>
+</p>
+
+<p>
+  Documentation for the National Lottery API.
+</p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lottocountry">LottoCountry</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Developer Docs</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Xolani Mazibuko.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/getting_started.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
